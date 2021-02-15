@@ -1,0 +1,15 @@
+hello world 
+hahaha 
+test
+the 0th line. 
+the 1th line. 
+the 2th line. 
+the 3th line. 
+the 4th line. 
+the 5th line. 
+the 6th line. 
+the 7th line. 
+the 8th line. 
+the 9th line. 
+('tuple', 1214)
+[1, "simple", "list"]

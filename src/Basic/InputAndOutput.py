@@ -1,3 +1,4 @@
+import json
 import math
 
 if __name__ == '__main__':
@@ -47,4 +48,50 @@ if __name__ == '__main__':
     print('Kabi: {0[Kabi]:d}; Soph: {0[Soph]:d}'.format(table)) # 通过 key 取出 dict 中元素。'[]' 中的为元素名
     print('Kabi:{Kabi:d}; Soph:{Soph:d}'.format(**table))  # 两个 ** 表示 keyword 参数
 
-    # to 7.1.3 of: https://docs.python.org/3.8/tutorial/inputoutput.html
+    '''
+    读写文件：
+        open() 函数返回一个 文件对象， 通常的使用方法为 open(filename, mode)
+            mode 可以为：
+                'r' 表示只读--如果缺省该参数，默认为只读模式； 
+                'w' 只写，如果已经有了相同文件名的文件，则原文件会被删除；
+                'a' 表示 append；
+                'r+' 表示 可读可写。
+        在文件使用完毕后，需要使用 close() 函数将文件资源关闭
+        使用 with 关键字 来打开文件，可以让系统在处理完毕文件后自动关闭文件资源。e.g.
+            with open('workfile') as f:
+                read_data = f.read()
+    '''
+    with open('Test.txt', 'w') as f:
+        f.write('hello world \nhahaha \ntest\n')
+    with open('Test.txt', 'a') as f:
+        for i in range(10):
+            f.write(f'the {i}th line. \n')
+    with open('Test.txt') as f:
+        print(f.readline()) # 读取一行。并且最后添加 \n 换行。 -- note: 如果是空行，返回 '\n', 而如果是文件尾，返回空字串: ''
+        print('*'*10)
+        # note: f.read() 读取上面 readline() 接下来的内容，而不是从文件头部开始读起
+        print(f.read())    # f.read(size) 指定读取的字符个数。-- 如果缺省 size，则读取所有内容。
+    print('*' * 40)
+    with open('Test.txt') as f:
+        for line in f:
+            print(line, end='')     # 推荐：使用 for 循环读取文件中的内容
+    value_to_be_written = ('tuple', 1214)
+    with open('Test.txt', 'a') as f:
+        f.write(str(value_to_be_written))   # 必须先将对象转换为 str 才能写入。写入的 tuple 为: ('tuple', 1214)
+        print(len(str(value_to_be_written)))
+        print(f.tell())     # tell() 返回当前读写指针在文件中的位置
+        # f.seek() 可以切换当前读写指针位于的位置
+
+    '''
+    在文件中使用 json 保存数据结构
+        在 python 中，可以使用 标准 module json 来处理，
+        将数据转换为 json 的过程称为 serializing，将 json 变回python 中数据则称为 deserializing.
+    '''
+    list = [1, 'simple', 'list']
+    s = json.dumps(list)   # dumps() 函数将 list 转为 json 并返回
+    print(s)
+    with open('Test.txt', 'a') as f:
+        f.write('\n')
+        json.dump(list, f)      # dump() 函数 将 list 转为 json 并写入到文件中
+    x = json.loads(s)       # loads()  从 json 串中解析出 python 数据结构。 load() 函数则是从文件中解析出对应结构
+    print(x[1])
