@@ -10,6 +10,7 @@ from urllib.request import urlopen
 
 if __name__ == '__main__':
     '''
+    https://docs.python.org/3.8/tutorial/stdlib.html
     通用操作：
         dir('module 名') -- 返回该 module 中的所有函数
         help('module 名')  -- 返回该 module 的帮助信息

@@ -5,6 +5,7 @@ from string import Template
 
 if __name__ == '__main__':
     '''
+    https://docs.python.org/3.8/tutorial/stdlib2.html
     介绍一些更加高阶的标准库module
     
     输出格式化
