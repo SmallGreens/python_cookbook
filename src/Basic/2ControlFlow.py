@@ -1,4 +1,14 @@
 if __name__ == '__main__':
+    '''
+    link: https://docs.python.org/3.8/tutorial/controlflow.html
+    python 中的流程控制语句：
+        - if: if- elif -else 。 
+        - for: for xx in xx, range() 场合 for 配合使用，规定一个范围， e.g. for i in range(10) 。 
+        - while。
+        - 与 for 和 while 搭配使用的 else：当 for 和 while 正常结束时，会执行 else 语句，而若 for 和 while 被 break 结束，
+        则不会执行else中语句。
+           
+    '''
 
     # if 语句的使用
     x = 10
@@ -21,7 +31,7 @@ if __name__ == '__main__':
     print(words)   # 遍历列表时删除元素
 
     # range() 函数，产生一连串的连续的数字
-    for i in range(5,10):
+    for i in range(5, 10):
         print(i)
     for i in range(len(words)):
         print(i, words[i])      # 配合使用 range 和 len 函数，使用位号进行遍历

@@ -3,8 +3,16 @@ from math import pi
 
 if __name__ == '__main__':
     '''
+    link: https://docs.python.org/3.8/tutorial/datastructures.html
+    list: []
+    tuple: ()
+    set 和 dict: {x: x}
+    '''
+
+
+    '''
     List 的方法举例：
-    - append(), 
+    - append(), list 尾部添加元素
     - extend(iterable): 将iterable 中所有的元素append 到 list后面
     - insert(i, x), 
     - remove(x) -- 移除list 中第一个等于 x 的元素， 如果x 不在队列中，抛出 ValueError,
@@ -98,14 +106,15 @@ if __name__ == '__main__':
     '''
     basket = {'apple', 'orange', 'beef', 'banana'}
     basket1 = set('apple')       # 注意，这样添加 set，加入的是 {'a', 'e', 'l', 'p'}
-    print(basket, basket1)       # {'orange', 'banana', 'apple', 'beef'} -- set 是无序的
+    print(basket, basket1)       # {'orange', 'banana', 'apple', 'beef'} {'a', 'e', 'l', 'p'} -- set 是无序,无重复的
     for x in basket:            # 可以使用 for 循环遍历 set
         print(x)
     tel = {'jack': 4098, 'sap': 4139}      # dict 声明, 可以直接用还括号
     tel1 = dict([('sap', 4139), ('guido', 4127), ('jack', 4098)])  # 还可以用 dict 构造函数创建
     tel2 = dict(sap=2139, guido=1298, jack=2452)        # 创建 dict， 另一种方式
     print(tel)
-    tel['sap'] = 1111                   # 使用 key 找到对应 value 并且修改 value
+    print('tel2 的值是：', tel2)  # el2 的值是： {'sap': 2139, 'guido': 1298, 'jack': 2452}
+    tel['sap'] = 1111           # 使用 key 找到对应 value 并且修改 value
     a = list(tel)               # 获取 key 组成的list
     print(a)
     print('*' * 40)
@@ -123,15 +132,21 @@ if __name__ == '__main__':
     animals = {1: 'dog', 2: 'cat', 3: 'cow'}
     for k, v in animals.items():
         print(k, v)
+
     stationery = ['ruler', 'rubber', 'pen']
     for i, v in enumerate(stationery):  # 分别给出位号和值
         print(i, v)
+
     print('*' * 40)
+
     for v1, v2 in zip(list(animals), stationery):   # 同时遍历多个 sequence
         print(animals[v1], v2)
+
     for i in reversed(range(1, 10, 2)):
         print(i)
+
     print('*' * 40)
+
     to_print = [5, 4, 7, 3, 2, 8]
     for i in sorted(to_print):      # 从小到大 排列
         print(i)

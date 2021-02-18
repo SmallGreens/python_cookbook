@@ -1,4 +1,11 @@
 if __name__ == '__main__':
+    '''
+    Link: https://docs.python.org/3.8/tutorial/introduction.html
+    主要内容：
+        python 简单算术运算；
+        python 简单字符串表示；
+        python list 的相关操作 -- [] -- 为 list
+    '''
 
     # use python as calculator
     print(5 ** 2)    # ** 表示 幂 运算
@@ -22,7 +29,11 @@ if __name__ == '__main__':
     # string 是 immutable 的，word[0] = 'J' 会报错
     print(len(word))          # len() 函数，获取 word 的长度
 
-    # List 相关操作 -- 这里所谓的list 其实就是 java 中的数组
+    # List 相关操作 -- 这里 的 list 比较像 java 中的数组，但对数组中的元素类型没有限制。虽然一般的，list 中元素为同一类型，但并不强制。
+    test = [1, 'a', 45]
+    print(test)
+    print(type(test[0]))   # <class 'int'>
+    print(type(test[1]))   # <class 'str'>
     square = [1, 4, 9, 16, 25]
     print(square)           # 直接打印出 [1, 4, 9, 16, 25] -- 比 java：Arrays.toString(square) 方便太多！！
     square[0] = 0           # 数组 是 mutable 的

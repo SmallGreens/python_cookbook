@@ -1,7 +1,7 @@
 if __name__ == '__main__':
-
     '''
-    def 定义函数
+    link: https://docs.python.org/3.8/tutorial/controlflow.html
+    def 定义函数 
     类似 java， python 的函数参数也使用值传递 -- 引用类型浅拷贝
     '''
     def fib(n):  # 打印 Fibonacci 数列小于 n 的元素
@@ -49,7 +49,9 @@ if __name__ == '__main__':
     print(ask_ok('Do you want to quit?'))  # 仅提供必需的 参数 prompt
     print(ask_ok('Want to overwrite the file?', 2))  # 还提供 retry 参数
 
-    ''' Warning: 默认值只执行一次，后序执行中会使用上一次的值。对于 mutable 的 默认值，可能会出现每次执行都不相同的情况'''
+    '''
+    Warning: 默认值只执行一次，后序执行中会使用上一次的值。对于 mutable 的 默认值，可能会出现每次执行都不相同的情况
+    '''
     def f(a, L=[]):
         L.append(a)
         return L
@@ -93,7 +95,7 @@ if __name__ == '__main__':
     unpacking args lists, python 可以通过 ‘*’ 将list 或 tuple 中的内容 unpack 出来作为函数的参数
     可以通过 '**' 将 dictionaries 中的元素 unpack 出来作为 keywords 参数
     '''
-    print(list(range(1,6)))
+    print(list(range(1,6)))  # [1, 2, 3, 4, 5]
     args = [1, 6]
     print(list(range(*args)))       # * 将list 中的元素unpack 出来作为参数，执行效果与 `print(list(range(1,6)))` 相同
 
@@ -106,6 +108,7 @@ if __name__ == '__main__':
     ''' 可以使用 lambda 表达式来表示简短的匿名函数， 如下'''
     def make_increment(n):
         return lambda x: x + n      # lambda 表达式中变量的范围与 nested 函数 类似
+
     f = make_increment(10)
     print(f(20))        # 输出： 30
     pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
@@ -116,5 +119,5 @@ if __name__ == '__main__':
     def f(arg1:'冒号后面是对应参数的注释', arg2) -> str:
         print('Annotations:', f.__annotations__)
         return 'str 是返回值的注释'
-    f(1,2)
+    print(f(1,2))
 
