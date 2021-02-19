@@ -113,7 +113,7 @@ if __name__ == '__main__':
 
     '''
     **********************************************************************
-    File "xxx/Python_cookbook/src/Basic/StandardLib1.py", line 105, in __main__.average
+    File "xxx/Python_cookbook/src/Basic/9StandardLib1.py", line 105, in __main__.average
     Failed example:
         print(average([5, 8, 10, 1]))
     Expected:

@@ -3,6 +3,13 @@ import math
 
 if __name__ == '__main__':
     '''
+    link： https://docs.python.org/3.8/tutorial/inputoutput.html
+    主要介绍了：
+        字符串的格式化输出， str.format(), f'xxx'
+        读写文件：with open(xx) as f: ...., open() 函数中指定读写模式，可以使用 f.read(), f.write() 等方法
+        转换为 json
+    '''
+    '''
     格式化输出 string 有如下几种方式：
         1. 在用 '' 包裹的字符串前面添加 f， 然后使用 '{}' 引用对应的值
         2. 使用 str.format() 进行输出
@@ -10,13 +17,13 @@ if __name__ == '__main__':
     # 使用 f 格式化字符串输出
     year = 2021
     event = 'happy new year'
-    print(f'Today is the {event} of {year}')
-    print(f'the value of pi is {math.pi:.3f}.') # .3f 表示保留3位小数
+    print(f'Today is the {event} of {year}')  # 感觉和 java web 中的 模板框架 velocity 有点像
+    print(f'the value of pi is {math.pi:.3f}.')  # .3f 表示保留3位小数
     # 使用 str.format 进行格式化输出
     yes_vote = 1000
     no_vote = 200
     percentage = yes_vote / (yes_vote + no_vote)
-    st = '{:-4} YES votes {:2.2%}'.format(yes_vote, percentage) # 第一个 {:-4} 指定了该字段占用的字符长度
+    st = '{:-4} YES votes {:2.2%}'.format(yes_vote, percentage)  # 第一个 {:-4} 指定了该字段占用的字符长度
     print(st)
 
     '''
@@ -44,7 +51,7 @@ if __name__ == '__main__':
     '''
     print('This {} is {}.'.format('method', 'simple')) # 最简单使用，format 中的值与前面空的大括号一一对应
     print('This {arg1} is {arg2}.'.format(arg1='method', arg2='medium')) # 可以给参数命名
-    table = {'Soph': 1086, 'Jimmy':2086, 'Kabi': 3066}
+    table = {'Soph': 1086, 'Jimmy': 2086, 'Kabi': 3066}
     print('Kabi: {0[Kabi]:d}; Soph: {0[Soph]:d}'.format(table)) # 通过 key 取出 dict 中元素。'[]' 中的为元素名
     print('Kabi:{Kabi:d}; Soph:{Soph:d}'.format(**table))  # 两个 ** 表示 keyword 参数
 
@@ -58,7 +65,7 @@ if __name__ == '__main__':
                 'r+' 表示 可读可写。
         在文件使用完毕后，需要使用 close() 函数将文件资源关闭
         使用 with 关键字 来打开文件，可以让系统在处理完毕文件后自动关闭文件资源。e.g.
-            with open('workfile') as f:
+            with open('file_name') as f:
                 read_data = f.read()
     '''
     with open('Test.txt', 'w') as f:
@@ -67,7 +74,7 @@ if __name__ == '__main__':
         for i in range(10):
             f.write(f'the {i}th line. \n')
     with open('Test.txt') as f:
-        print(f.readline()) # 读取一行。并且最后添加 \n 换行。 -- note: 如果是空行，返回 '\n', 而如果是文件尾，返回空字串: ''
+        print(f.readline())  # 读取一行。并且最后添加 \n 换行。 -- note: 如果是空行，返回 '\n', 而如果是文件尾，返回空字串: ''
         print('*'*10)
         # note: f.read() 读取上面 readline() 接下来的内容，而不是从文件头部开始读起
         print(f.read())    # f.read(size) 指定读取的字符个数。-- 如果缺省 size，则读取所有内容。
@@ -87,11 +94,11 @@ if __name__ == '__main__':
         在 python 中，可以使用 标准 module json 来处理，
         将数据转换为 json 的过程称为 serializing，将 json 变回python 中数据则称为 deserializing.
     '''
-    list = [1, 'simple', 'list']
-    s = json.dumps(list)   # dumps() 函数将 list 转为 json 并返回
+    list1 = [1, 'simple', 'list']
+    s = json.dumps(list1)   # dumps() 函数将 list 转为 json 并返回
     print(s)
     with open('Test.txt', 'a') as f:
         f.write('\n')
-        json.dump(list, f)      # dump() 函数 将 list 转为 json 并写入到文件中
+        json.dump(list1, f)      # dump() 函数 将 list 转为 json 并写入到文件中
     x = json.loads(s)       # loads()  从 json 串中解析出 python 数据结构。 load() 函数则是从文件中解析出对应结构
     print(x[1])

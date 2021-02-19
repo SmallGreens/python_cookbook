@@ -3,10 +3,12 @@ import builtins
 import ModulesExample
 if __name__ == '__main__':
     '''
+    link: https://docs.python.org/3.8/tutorial/modules.html
+    
     modules: 模块，模组的意思。-- 在 python 中，其实就是一个文件，提供一些可供复用的代码。
     module 中定义的内容可以被 imported 到其他 modules 中。
     使用 import 导入 modules
-    使用 ‘modules'name.modules'fcn’ 调用 modules 中的函数
+    使用 ‘modules_name.modules_fcn()’ 调用 modules 中的函数
         这样调用的原因是，modules 中的变量、函数名是属于 modules 自己的变量域的（private symbol table）
         也可以通过 'from ModulesExample import fcn', 将modules 的函数名，变量名导入，从而可以直接在当前函数中使用
         或者使用 'from ModulesExample import *' 导入所有的函数变量名(note: 以下划线开头的 名字不会被导入，例如 '_x')
@@ -85,8 +87,6 @@ if __name__ == '__main__':
     import 时也可以使用相对路径：
         例如在 effects 包中的 surround.py module 中，想导入 echo module，以及 filters package 中的 equalizer modules，可以使用：
             from .. import echo
-            from ..filters import equalizer
-    
-            
+            from ..filters import equalizer  
     '''
 
